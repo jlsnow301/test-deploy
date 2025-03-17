@@ -19,3 +19,6 @@ jobs:
         run: |
           echo "name=Jerm" >> $GITHUB_OUTPUT
           echo "job=None" >> $GITHUB_OUTPUT
+    outputs:
+      name: ${{ steps.set_vars.outputs.name }}
+      job: ${{ steps.set_vars.outputs.job }}
