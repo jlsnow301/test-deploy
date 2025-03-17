@@ -7,16 +7,7 @@ on:
 
 jobs:
   save_vars:
-    runs-on: ubuntu-latest
-    outputs:
-      name: ${{ steps.set-vars.outputs.name }}
-      job: ${{ steps.set-vars.outputs.job }}
-    steps:
-      - name: Save variables
-        id: set-vars
-        run: |
-          echo "name=Jerm" >> $GITHUB_OUTPUT
-          echo "job=None" >> $GITHUB_OUTPUT
+    uses: ./.github/workflows/save_vars.yml
 
   use_vars:
     needs: save_vars

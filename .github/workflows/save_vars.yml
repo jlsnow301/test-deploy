@@ -1,0 +1,21 @@
+name: Save Variables
+
+on:
+  workflow_call:
+    outputs:
+      name:
+        description: "The name variable"
+        value: ${{ jobs.save_vars.outputs.name }}
+      job:
+        description: "The job variable"
+        value: ${{ jobs.save_vars.outputs.job }}
+
+jobs:
+  save_vars:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Save variables
+        id: set_vars
+        run: |
+          echo "name=Jerm" >> $GITHUB_OUTPUT
+          echo "job=None" >> $GITHUB_OUTPUT
